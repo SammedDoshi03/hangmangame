@@ -1,12 +1,22 @@
 import random
-from words import list_of_words
+from words import category, other_list_of_words, movies_list, flowers_list
 
 # Getting Random Value(Word) From File(dist.py) and Converting(Returning) into Upper Format
 
 
 def get_random_world():
-    word = random.choice(list_of_words)
-    #print('Selected word is ',word)
+    print("Please select the category for your word:")
+    i = 1
+    for cat in category:
+        print(i,":",cat)
+        i = i+1
+    categorySelected = int(input())
+    if categorySelected == 1:
+        word = random.choice(movies_list)
+    elif categorySelected == 2:
+        word = random.choice(flowers_list)
+    else:
+        word = random.choice(other_list_of_words)
     return word.upper()
 
 # Actual Game
